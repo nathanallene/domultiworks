@@ -20,7 +20,7 @@ import newIdeasPartnershipsImage from "@/photos/services/new-ideas-partnerships.
  */
 export const COMPANY = {
   name: "DoMultiWork",
-  email: "2.r.3.141592@gmail.com",
+  email: "alex@domultiwork.com",
   tagline: "Software Contracts, AI & Development",
   metaDescription:
     "Get support managing multiple software development contracts, find experienced developers for your project or build practical AI skills with free beginner training.",
