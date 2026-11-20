@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
-import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SiteBackground } from "@/components/ui/SiteBackground";
 import { COMPANY } from "@/lib/constants";
 
@@ -75,7 +74,6 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SiteBackground />
-          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>
