@@ -11,15 +11,15 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="space-y-4">
-            <Link href="/#home" className="flex items-center gap-2">
+            <Link href="/#home" className="flex items-center gap-3">
               <Image
                 src={logo}
                 alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-lg object-cover"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-xl object-cover"
               />
-              <span className="font-display text-xl font-bold text-foreground">
+              <span className="font-display text-3xl font-bold text-foreground">
                 {COMPANY.name}
               </span>
             </Link>
