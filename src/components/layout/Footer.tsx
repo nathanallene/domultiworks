@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Layers } from "lucide-react";
+import Image from "next/image";
 import { COMPANY, FOOTER_LINKS } from "@/lib/constants";
+import logo from "@/photos/logo.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,9 +12,13 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="space-y-4">
             <Link href="/#home" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white">
-                <Layers className="h-5 w-5" />
-              </div>
+              <Image
+                src={logo}
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-lg object-cover"
+              />
               <span className="font-display text-xl font-bold text-foreground">
                 {COMPANY.name}
               </span>

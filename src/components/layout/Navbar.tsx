@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Layers, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS, COMPANY, contactHref } from "@/lib/constants";
 import { buttonVariants } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
+import logo from "@/photos/logo.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,9 +39,14 @@ export function Navbar() {
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/#home" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white">
-              <Layers className="h-5 w-5" />
-            </div>
+            <Image
+              src={logo}
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-lg object-cover"
+              priority
+            />
             <span className="font-display text-xl font-bold text-foreground">
               {COMPANY.name}
             </span>
