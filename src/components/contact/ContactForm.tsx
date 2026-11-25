@@ -2,20 +2,15 @@
 
 import { useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import emailjs from "@emailjs/browser";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { COMPANY, INQUIRY_OPTIONS, isInquiryId, type InquiryId } from "@/lib/constants";
 import { CONTACT } from "@/lib/content";
+import { sendWeb3Form } from "@/lib/web3forms";
 
 /*
- * EmailJS settings (set in .env.local and in the hosting provider's environment variables).
- * See .env.example. Without them the form reports an error instead of pretending to send.
+ * Sends through Web3Forms from the browser. Free plans reject server-side posts.
  */
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
 const inputClass =
   "w-full rounded-lg border border-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-white/[0.1] dark:bg-white/[0.03]";
 
@@ -40,27 +35,20 @@ export function ContactForm() {
     setStatus("sending");
 
     try {
-      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-        throw new Error("EmailJS is not configured");
-      }
-
       const inquiryLabel =
         INQUIRY_OPTIONS.find((option) => option.id === inquiry)?.label ?? "";
 
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: name,
-          reply_to: email,
-          company: company || "Not provided",
-          inquiry: inquiryLabel,
-          message,
-        },
-        { publicKey: EMAILJS_PUBLIC_KEY }
-      );
+      await sendWeb3Form({
+        subject: `Contact form — ${inquiryLabel}`,
+        from_name: COMPANY.name,
+        name,
+        email,
+        replyto: email,
+        message,
+        Company: company || "Not provided",
+        Inquiry: inquiryLabel,
+      });
 
-      // Only reached once EmailJS has accepted the message.
       setStatus("sent");
       setName("");
       setEmail("");

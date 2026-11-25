@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 import { SiteBackground } from "@/components/ui/SiteBackground";
+import { VisitorTracker } from "@/components/analytics/VisitorTracker";
 import { COMPANY } from "@/lib/constants";
 
 const inter = Inter({
@@ -74,6 +75,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <SiteBackground />
+          <VisitorTracker />
           {children}
         </ThemeProvider>
       </body>

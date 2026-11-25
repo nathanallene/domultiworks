@@ -30,7 +30,7 @@ A premium, animated marketing website for [ReddHR](https://www.linkedin.com/comp
 - Custom cursor with spring-physics follower (desktop)
 - Dark mode by default with light mode support
 - Fully responsive (mobile, tablet, desktop)
-- Contact form with EmailJS integration
+- Contact form with Web3Forms integration
 - 15 statically generated pages for fast performance
 - SEO optimized with OpenGraph and Twitter Card metadata
 

@@ -35,6 +35,12 @@ export default function PrivacyPage() {
               your full name, your email address, your company or team (optional), the area you want
               help with, and the message itself. Please only share what is needed for your enquiry.
             </p>
+            <p>
+              When you visit the website, we may collect your IP address and approximate location
+              (such as city and country), plus related network details from our IP lookup provider.
+              We use this to understand site traffic and for basic security monitoring. Repeat visits
+              from the same browser within a short window are not reported again.
+            </p>
             <p>We do not take payments through this website.</p>
           </section>
 
@@ -46,6 +52,8 @@ export default function PrivacyPage() {
               We use your information to reply to your enquiry and to discuss flexible contract
               work, a software or AI project, technical support, AI training or a partnership.
               Before we agree to any work, we will discuss scope, responsibilities and timing with you.
+              Visitor IP and location details may be emailed to {COMPANY.email} for traffic awareness
+              and basic security monitoring.
             </p>
           </section>
 
@@ -54,10 +62,10 @@ export default function PrivacyPage() {
               3. How messages are sent and stored
             </h2>
             <p>
-              Contact form messages are sent by email through EmailJS, a third-party email service,
-              and delivered to our inbox at {COMPANY.email}. We keep enquiry emails for as long as
-              needed to respond to you and manage any resulting work, and then delete them. [Confirm
-              retention period.]
+              Contact form messages and visitor alerts are sent by email through Web3Forms, a
+              third-party form email service, and delivered to our inbox at {COMPANY.email}. We keep
+              enquiry emails for as long as needed to respond to you and manage any resulting work,
+              and then delete them. [Confirm retention period.]
             </p>
           </section>
 
@@ -66,10 +74,10 @@ export default function PrivacyPage() {
               4. Cookies, analytics and local storage
             </h2>
             <p>
-              This website does not currently use analytics, advertising or tracking cookies. It
-              stores your light or dark theme preference in your browser&rsquo;s local storage so the
-              site remembers your choice. If we add analytics or any other tracking in future, we will
-              update this page.
+              This website does not use advertising cookies. It stores your light or dark theme
+              preference in your browser&rsquo;s local storage so the site remembers your choice. For
+              visitor reporting we may set a short-lived cookie (about 30 seconds) so the same visit
+              is not reported repeatedly.
             </p>
           </section>
 
@@ -80,7 +88,12 @@ export default function PrivacyPage() {
             <p>The website relies on the following third-party services:</p>
             <ul className="list-disc space-y-2 pl-6">
               <li>
-                <span className="text-foreground">EmailJS</span> to deliver contact form messages.
+                <span className="text-foreground">Web3Forms</span> to deliver contact form messages
+                and visitor alerts to {COMPANY.email}.
+              </li>
+              <li>
+                <span className="text-foreground">ipapi.is</span> to look up approximate location and
+                network details for visitor IP addresses.
               </li>
               <li>
                 <span className="text-foreground">Google Fonts</span> to load the website&rsquo;s
