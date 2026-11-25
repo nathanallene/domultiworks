@@ -174,6 +174,10 @@ export const CONTACT = {
       text: "Tell us what you’d like to learn or share a short description of the idea you’d like to explore.",
     },
   ],
+  scheduleHeading: "Schedule a meeting",
+  scheduleIntro:
+    "Prefer to talk it through? Book a 30-minute call and we can go over what you need.",
+  scheduleCta: "Book a 30-minute meeting",
   preferEmail: "Prefer email? Reach us at",
   form: {
     nameLabel: "Full name (required)",

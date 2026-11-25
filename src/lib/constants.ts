@@ -21,6 +21,7 @@ import newIdeasPartnershipsImage from "@/photos/services/new-ideas-partnerships.
 export const COMPANY = {
   name: "DoMultiWork",
   email: "alex@domultiwork.com",
+  calendlyUrl: "https://calendly.com/alex-domultiwork/30min",
   tagline: "Software Contracts, AI & Development",
   metaDescription:
     "Get support managing multiple software development contracts, find experienced developers for your project or build practical AI skills with free beginner training.",

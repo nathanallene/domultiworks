@@ -2,7 +2,9 @@
 
 import { Suspense } from "react";
 import { motion } from "framer-motion";
+import { Calendar } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { buttonVariants } from "@/components/ui/Button";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { COMPANY } from "@/lib/constants";
 import { CONTACT } from "@/lib/content";
@@ -28,6 +30,28 @@ export function ContactSection() {
             <div className="space-y-4">
               <h3 className="font-display text-2xl font-bold text-foreground">{CONTACT.title}</h3>
               <p className="text-muted-foreground">{CONTACT.intro}</p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-2xl border border-primary/40 bg-primary/5 p-6 shadow-lg shadow-primary/15 dark:bg-primary/10">
+              <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-primary/20 blur-3xl" />
+              <div className="relative space-y-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
+                  <Calendar className="h-6 w-6" />
+                </div>
+                <h4 className="font-display text-xl font-bold text-foreground">
+                  {CONTACT.scheduleHeading}
+                </h4>
+                <p className="text-sm text-muted-foreground">{CONTACT.scheduleIntro}</p>
+                <a
+                  href={COMPANY.calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}
+                >
+                  <Calendar className="h-5 w-5" />
+                  {CONTACT.scheduleCta}
+                </a>
+              </div>
             </div>
 
             <div className="space-y-4">
