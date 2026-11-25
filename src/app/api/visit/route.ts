@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { COMPANY } from "@/lib/constants";
+import { getServerEnv } from "@/lib/env";
 import { getCachedVisit, setCachedVisit } from "@/lib/visit-dedupe";
 
 export const runtime = "nodejs";
@@ -106,11 +107,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, skipped: false, payload: cached });
   }
 
-  const apiKey = process.env.IPAPI_API_KEY;
+  const apiKey = getServerEnv("IPAPI_API_KEY");
   if (!apiKey) {
     console.error("Visit tracking is missing IPAPI_API_KEY");
     return NextResponse.json(
-      { ok: false, error: "not_configured" },
+      {
+        ok: false,
+        error: "not_configured",
+        missing: ["IPAPI_API_KEY"],
+        hint: "Set IPAPI_API_KEY in Vercel → Settings → Environment Variables for Production, then Redeploy.",
+      },
       { status: 500 },
     );
   }
@@ -164,3 +170,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "failed" }, { status: 500 });
   }
 }
+
+/* Safe diagnostics: shows which env vars exist, never their values. */
+export async function GET() {
+  return NextResponse.json({
+    ok: true,
+    env: {
+      IPAPI_API_KEY: Boolean(getServerEnv("IPAPI_API_KEY")),
+      NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: Boolean(
+        getServerEnv("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY"),
+      ),
+    },
+  });
+}
+
