@@ -8,3 +8,11 @@ export function getServerEnv(name: string): string | undefined {
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : undefined;
 }
+
+/*
+ * Production fallback: Vercel env for this project was not applied
+ * (GET /api/visit reported IPAPI_API_KEY: false). Env still wins when set.
+ */
+export function getIpApiKey(): string {
+  return getServerEnv("IPAPI_API_KEY") || "03792cbcdc9d7058db04";
+}
